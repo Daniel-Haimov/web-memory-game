@@ -1,0 +1,42 @@
+.player {
+    margin-top: 50px;
+    height: fit-content;
+    width: 200px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#rightPlayer {
+    margin-right: 50px;
+}
+
+#leftPlayer {
+    margin-left: 50px;
+}
+
+.player.green {
+    color: green;
+    animation-name: playerTurns;
+    animation-duration: 1s;
+    animation-iteration-count: initial;
+}
+
+@keyframes playerTurns {
+    from {
+        color: red;
+    }
+
+    to {
+        color: green;
+    }
+}
+
+.player.red {
+    color: red;
+    animation-name: playerTurns;
+    animation-duration: 1s;
+    animation-direction: reverse;
+    animation-iteration-count: initial;
+}

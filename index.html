@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Memory Game</title>
+
+    <link rel="stylesheet" href="styles/Style.css">
+    <link rel="stylesheet" href="styles/playersStyle.css">
+    <link rel="stylesheet" href="styles/sideNavStyle.css">
+    <link rel="stylesheet" href="styles/gameBoardStyle.css">
+
+</head>
+
+<body>
+
+    <!-- NavBar -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="sidenav_inner_text">
+            <label for="LeftName">Left Player name: </label>
+            <input type="text" id="LeftName" name="fname">
+            <br><br>
+            <label for="RightName">Right Player name: </label>
+            <input type="text" id="RightName" name="lname">
+
+            <br><br>
+
+            <p>Please select Board Size:</p>
+            <input type="radio" id="4x4" name="board_size_opt" value="4x4" checked>
+            <label for="4x4">4x4</label>
+            <br>
+            <input type="radio" id="5x5" name="board_size_opt" value="5x5">
+            <label for="5x5">5x5</label>
+        </div>
+    </div>
+
+    <span onclick="openNav()" class="navIco">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </span>
+
+
+    <div class="player" id="leftPlayer">
+        <h3 id="leftPlayerUsername">Jane Roe</h3>
+        <h4 id="leftPlayerScore">Score: 0000</h4>
+    </div>
+
+    <section class="memory-game" id="memory_game_table"></section>
+
+    <div class="player" id="rightPlayer">
+        <h3 id="RightPlayerUsername">Jhon Doe</h3>
+        <h4 id="rightPlayerScore">Score: 0000</h4>
+    </div>
+
+    <script src="scripts/gameManager.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/sideNavscript.js"></script>
+
+
+</body>
+
+</html>
