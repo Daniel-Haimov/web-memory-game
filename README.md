@@ -1,2 +1,2 @@
-<img wigth="200px" heigth="200px" src="" alt="4x4"/>
-<img wigth="200px" heigth="200px" src="" alt="5x5"/>
+<img wigth="200px" heigth="200px" src="/4x4.png" alt="4x4"/>
+<img wigth="200px" heigth="200px" src="/5x5.png" alt="5x5"/>
