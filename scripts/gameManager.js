@@ -2,18 +2,13 @@ let cards; //               = document.querySelectorAll('.memory-card');
 let leftPlayer = document.getElementById('leftPlayer');
 let rightPlayer = document.getElementById('rightPlayer');
 let leftPlayerUsername = document.getElementById('leftPlayerUsername');
-let RightPlayerUsername = document.getElementById('RightPlayerUsername');
+let rightPlayerUsername = document.getElementById('RightPlayerUsername');
 
 let leftPlayerScoreLBL = document.getElementById('leftPlayerScore');
 let rightPlayerScoreLBL = document.getElementById('rightPlayerScore');
 
-let leftPlayerScore = 0;
-let rightPlayerScore = 0;
-
-
-updateScore(leftPlayerScoreLBL, leftPlayerScore);
-updateScore(rightPlayerScoreLBL, rightPlayerScore);
-
+let leftPlayerScore ;
+let rightPlayerScore;
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -91,6 +86,8 @@ function match() {
     } else {
       updateScore(rightPlayerScoreLBL, ++rightPlayerScore)
     }
+
+    updateCookieScore(leftPlayerScore, rightPlayerScore);
     setTimeout(() => {
       startGame();
     }, 1000);
@@ -161,22 +158,10 @@ function shuffle() {
 function startGame() {
   let numOfCards = boardSize * boardSize;
   NUMBER_OF_PAIRS = Math.floor(numOfCards / 2 + numOfCards % 2);
-
-
   pairsFoundedCount = 0;
-
 
   cards = document.querySelectorAll('.memory-card');
   cards.forEach(card => {
-    let cardSize;
-    if (boardSize === 4) {
-      cardSize = 'calc(25% - 10px)';
-    } else {
-      cardSize = 'calc(20% - 10px)';
-    }
-    card.style.width  = cardSize;
-    card.style.height = cardSize;
-
     card.removeEventListener('click', foundCard);
     card.addEventListener('click', flipCard);
     card.classList.remove('flip');

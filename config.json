@@ -1,4 +1,7 @@
 {
-    "board_size": "4x4"
-    
+    "leftPlayerName": "Jane Roe",
+    "leftPlayerScore": 0,
+    "rightPlayerName": "Jane Roe",
+    "Jhon Doe": 0,
+    "board_size": "4"
 }
