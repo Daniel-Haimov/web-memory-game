@@ -1,7 +1,3 @@
-let LeftNameValue  = document.getElementById("LeftName") ;
-let rightNameValue = document.getElementById("RightName");
-let rb_board_size_opt = document.getElementsByName('board_size_opt');
-
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -19,7 +15,6 @@ function openNav() {
     document.body.style.backgroundColor = "#060AB2";
     lockBoard = false;
 
-
     if (LeftNameValue.value === "" || LeftNameValue.value.includes("@")){
       LeftNameValue.value = "Jane Roe";
     }
@@ -33,10 +28,6 @@ function openNav() {
     setCookie(LeftNameValue.value, leftPlayerScore, rightNameValue.value, rightPlayerScore, boardSize);
 
     updateTable();
-
-
-
-    // document.getElementById("main").removeEventListener('click', closeNav);
   }
 
 function updateTable(){

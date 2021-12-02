@@ -1,26 +1,3 @@
-let cards; //               = document.querySelectorAll('.memory-card');
-let leftPlayer = document.getElementById('leftPlayer');
-let rightPlayer = document.getElementById('rightPlayer');
-let leftPlayerUsername = document.getElementById('leftPlayerUsername');
-let rightPlayerUsername = document.getElementById('RightPlayerUsername');
-
-let leftPlayerScoreLBL = document.getElementById('leftPlayerScore');
-let rightPlayerScoreLBL = document.getElementById('rightPlayerScore');
-
-let leftPlayerScore ;
-let rightPlayerScore;
-
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
-let changeTurn = 0;
-let pairsFoundedCount = 0;
-let NUMBER_OF_PAIRS;
-let boardSize;
-
-
-
-
 
 function flipCard() {
   if (lockBoard) {
@@ -100,29 +77,6 @@ function updateScore(playerScoreLabel, score) {
   playerScoreLabel.innerHTML = "Score: " + score;
 }
 
-function updateTurn() {
-  if (changeTurn === 0) {
-    switchPlayerColor(leftPlayer, true);
-    switchPlayerColor(rightPlayer, false);
-  } else {
-    switchPlayerColor(leftPlayer, false);
-    switchPlayerColor(rightPlayer, true);
-  }
-}
-
-function switchPlayerColor(player, turn) {
-  if (turn) {
-    player.classList.remove('red');
-    player.classList.add('green');
-  } else {
-    player.classList.remove('green');
-    player.classList.add('red');
-  }
-}
-
-
-
-
 function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   firstCard.addEventListener('click', foundCard);
@@ -143,18 +97,6 @@ function unflipCards() {
   }, 1500);
 }
 
-function resetBoard() {
-  [hasFlippedCard, lockBoard] = [false, false];
-  [firstCard, secondCard] = [null, null];
-}
-
-function shuffle() {
-  cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 12);
-    card.style.order = randomPos;
-  });
-};
-
 function startGame() {
   let numOfCards = boardSize * boardSize;
   NUMBER_OF_PAIRS = Math.floor(numOfCards / 2 + numOfCards % 2);
@@ -170,4 +112,36 @@ function startGame() {
   resetBoard();
   updateTurn();
   shuffle();
+}
+
+function resetBoard() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
+}
+
+function shuffle() {
+  cards.forEach(card => {
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+};
+
+function updateTurn() {
+  if (changeTurn === 0) {
+    switchPlayerColor(leftPlayer, true);
+    switchPlayerColor(rightPlayer, false);
+  } else {
+    switchPlayerColor(leftPlayer, false);
+    switchPlayerColor(rightPlayer, true);
+  }
+}
+
+function switchPlayerColor(player, turn) {
+  if (turn) {
+    player.classList.remove('red');
+    player.classList.add('green');
+  } else {
+    player.classList.remove('green');
+    player.classList.add('red');
+  }
 }
